@@ -5,7 +5,7 @@ Overview
 
  I’ve hosted a static website using AWS S3, with all the infrastructure automated using Terraform. If you're curious to see the magic, feel free to explore the steps below to understand the process and contribute!
 ---------------------------------------------------------------------------------------
-![image alt](https://github.com/405found404/Devops-Projects/blob/45119e7f3bd2e06e781ddae21c996b7d1d582f6d/s3_STATIC%20_WEBSITE/Image3.png)
+![image alt](https://github.com/405found404/Devops-Projects/blob/fccd3abb637267702acbc83efcace54b3852033b/s3_STATIC%20_WEBSITE/image.png)
 
 
 
