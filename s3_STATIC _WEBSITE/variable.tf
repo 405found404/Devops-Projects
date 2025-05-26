@@ -1,4 +1,0 @@
-variable "bucketname" {
-    default = "mywebsitebyterraform"
-  
-}
