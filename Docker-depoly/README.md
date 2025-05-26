@@ -9,7 +9,7 @@ Architecture Diagram
 - *Amazon EC2*: A virtual server on AWS where everything runs.
 - *Docker*: To containerize the portfolio application.
 - *Docker Compose*: To manage multiple services easily.
-- *Nginx*: Acts as a web server and reverse proxy.
+- *Apache*: Acts as a web server and reverse proxy.
 - *Portfolio Website*: Your actual portfolio files (HTML, CSS, JS, etc.)
 
 
