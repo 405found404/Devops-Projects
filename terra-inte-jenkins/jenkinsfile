@@ -1,0 +1,43 @@
+pipeline {
+    agent any
+
+    parameters {
+        choice(name: 'AWS_SERVICE', choices: ['ec2'], description: 'Select AWS SERVICE')
+        choice(name: 'TERRAFORM_ACTION', choices: ['Apply', 'Destroy'], description: 'Select Terraform action')
+        string(name: 'pipeline_name', defaultValue: 'terra-inte-jenkins', description: 'Enter Pipeline Name')
+    }
+
+    environment {
+        GIT_REPO_URL = "https://github.com/405found404/url"
+        TERRAFORM_DIR = "path/${params.AWS_SERVICE}"
+        AWS_REGION = 'us-east-1'
+    }
+
+    stages {
+        stage('Git Checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: env.GIT_REPO_URL]]])
+            }
+        }
+
+        stage('Terraform Init & Action') {
+            steps {
+                dir("${env.TERRAFORM_DIR}") {
+                    withAWS(credentials: 'credentials id', region: "${env.AWS_REGION}") {
+                        script {
+                            sh 'terraform init'
+
+                            if (params.TERRAFORM_ACTION == 'Apply') {
+                                sh 'terraform apply -auto-approve'
+                            } else if (params.TERRAFORM_ACTION == 'Destroy') {
+                                sh 'terraform destroy -auto-approve'
+                            } else {
+                                error("Invalid Terraform action selected")
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
