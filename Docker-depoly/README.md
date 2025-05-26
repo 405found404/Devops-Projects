@@ -4,7 +4,7 @@ This project is about deploying a personal portfolio website using Docker on an 
 --------------------------------------------------------------------------------------------------------------------------------------------
 Architecture Diagram
 --------------------------------------------------------------------------------------------------------------------------------------------
-![image alt](image_url)
+![image alt](https://github.com/405found404/Devops-Projects/blob/62c2130e83dbf9ec37f2511dba9605b787ef7356/Docker-depoly/image1.png)
 
 - *Amazon EC2*: A virtual server on AWS where everything runs.
 - *Docker*: To containerize the portfolio application.
